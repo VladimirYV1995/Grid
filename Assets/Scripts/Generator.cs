@@ -60,7 +60,10 @@ public class Generator : MonoBehaviour
     {
         for (int i = 0; i < _container.childCount; i++)
         {
-            Destroy(_container.GetChild(i).gameObject);
+            if(_container.GetChild(i).TryGetComponent(out Letter letter))
+            {
+                letter.Delete();
+            }
         }
     }
 }

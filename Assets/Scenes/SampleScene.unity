@@ -433,7 +433,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1281841775}
+      - m_Target: {fileID: 649513608}
         m_MethodName: MixGrid
         m_Mode: 1
         m_Arguments:
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1281841774}
+      - m_Target: {fileID: 649513609}
         m_MethodName: GenerateGrid
         m_Mode: 1
         m_Arguments:
@@ -847,6 +847,8 @@ GameObject:
   - component: {fileID: 649513607}
   - component: {fileID: 649513606}
   - component: {fileID: 649513605}
+  - component: {fileID: 649513609}
+  - component: {fileID: 649513608}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -940,6 +942,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649513603}
   m_CullTransparentMesh: 0
+--- !u!114 &649513608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649513603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d296b29924de94b8339fdda7b686a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _generator: {fileID: 649513609}
+  _generate: {fileID: 488935737}
+  _mix: {fileID: 388192889}
+  _timeMix: 2
+--- !u!114 &649513609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649513603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045d76f72d536f14ba489ad1e459b541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _width: {fileID: 740017619}
+  _wrongWidth: {fileID: 240360881}
+  _height: {fileID: 1575509635}
+  _wrongHeight: {fileID: 817106423}
+  _grid: {fileID: 649513604}
+  _gridLayoutGroup: {fileID: 756326781}
+  _container: {fileID: 756326780}
+  _template: {fileID: 1194331691791906747, guid: dbb3aced9b76a3140afc87858acb8888,
+    type: 3}
 --- !u!1 &663956482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,8 +1994,6 @@ GameObject:
   - component: {fileID: 1281841772}
   - component: {fileID: 1281841771}
   - component: {fileID: 1281841770}
-  - component: {fileID: 1281841774}
-  - component: {fileID: 1281841775}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2046,43 +2083,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1281841774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281841769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045d76f72d536f14ba489ad1e459b541, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _width: {fileID: 740017619}
-  _wrongWidth: {fileID: 240360881}
-  _height: {fileID: 1575509635}
-  _wrongHeight: {fileID: 817106423}
-  _grid: {fileID: 649513604}
-  _gridLayoutGroup: {fileID: 756326781}
-  _container: {fileID: 756326780}
-  _template: {fileID: 1194331691791906747, guid: dbb3aced9b76a3140afc87858acb8888,
-    type: 3}
---- !u!114 &1281841775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281841769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d296b29924de94b8339fdda7b686a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _generator: {fileID: 1281841774}
-  _generate: {fileID: 488935737}
-  _mix: {fileID: 388192889}
-  _timeMix: 2
 --- !u!1 &1477483366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,7 +2434,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
