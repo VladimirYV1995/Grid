@@ -18,9 +18,6 @@ public class Mixer : MonoBehaviour
         foreach (var letter in _generator.Letters)
         {
             positions.Add(letter.transform.position);
-        }
-        foreach (var letter in _generator.Letters)
-        {
             if (letter.TryGetComponent(out Movement movement))
             {
                 movements.Add(movement);
