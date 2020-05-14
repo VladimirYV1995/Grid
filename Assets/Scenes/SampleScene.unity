@@ -955,8 +955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generator: {fileID: 649513609}
-  _generate: {fileID: 488935737}
-  _mix: {fileID: 388192889}
+  _buttons:
+  - {fileID: 488935737}
+  - {fileID: 388192889}
   _timeMix: 2
 --- !u!114 &649513609
 MonoBehaviour:

@@ -6,51 +6,68 @@ using UnityEngine.UI;
 public class Mixer : MonoBehaviour
 {
     [SerializeField] private Generator _generator;
-    [SerializeField] private Button _generate;
-    [SerializeField] private Button _mix;
+    [SerializeField] private Button[] _buttons;
     [SerializeField] private float _timeMix = 2;
 
     public void MixGrid()
     {
         int randIndex;        
         List<Vector2> positions = new List<Vector2>();
+        List<Movement> movements = new List<Movement>();
 
         foreach (var letter in _generator.Letters)
         {
             positions.Add(letter.transform.position);
         }
+        foreach (var letter in _generator.Letters)
+        {
+            if (letter.TryGetComponent(out Movement movement))
+            {
+                movements.Add(movement);
+            }
+        }
 
         StartCoroutine(DesableButtons());
-        foreach (Letter letter in _generator.Letters)
+        foreach (Movement movement in movements)
         {           
             randIndex = Random.Range(0, positions.Count);
-            StartCoroutine(ChangePosition(letter, positions[randIndex]));
+            movement.SetTarget(positions[randIndex], _timeMix);
             positions.RemoveAt(randIndex);
         }
+        StartCoroutine(ChangePositions(movements));
     }
 
     private IEnumerator DesableButtons()
     {
-        _generate.enabled = false;
-        _mix.enabled = false;
+        foreach (Button button in _buttons)
+        {
+            button.enabled = false;
+        }         
 
         yield return new WaitForSeconds(_timeMix);
 
-        _generate.enabled = true;
-        _mix.enabled = true;
+        foreach (Button button in _buttons)
+        {
+            button.enabled = true;
+        }
 
         StopCoroutine(DesableButtons());
     }
 
-    private IEnumerator ChangePosition(Letter letter, Vector2 target)
+    private IEnumerator ChangePositions(List<Movement> movements)
     {
-        float maxDistanceDelta = Vector2.Distance(letter.transform.position, target) * Time.deltaTime / _timeMix;
+        float currentTime = 0;
 
-        while ((Vector2)letter.transform.position != target)
+        while (currentTime < _timeMix)
         {
-            letter.Move(target, maxDistanceDelta);
+            foreach (Movement movement in movements)
+            {
+                movement.Move();
+                
+            }
+            currentTime += Time.deltaTime;
             yield return null;
         }
-        StopCoroutine(ChangePosition(letter, target));
+        StopCoroutine(ChangePositions(movements));
     }
 }

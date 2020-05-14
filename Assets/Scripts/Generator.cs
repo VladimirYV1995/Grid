@@ -12,20 +12,19 @@ public class Generator : MonoBehaviour
 
     [SerializeField] private RectTransform _grid;
     [SerializeField] private GridLayoutGroup _gridLayoutGroup;
-    [SerializeField] private Transform _container;
-    
+    [SerializeField] private Transform _container;    
 
     [SerializeField] private Letter _template;
 
-    public List<Letter> Letters => _letters;
-    private List<Letter> _letters;
     private string _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private List<Letter> _letters;
+    public List<Letter> Letters => _letters;
 
     public void GenerateGrid()
     {
-        int width = CheckInput(_width, _wrongWidth);
-        int height = CheckInput(_height, _wrongHeight);
         int randIndex;
+        int width = CheckInput(_width, _wrongWidth);
+        int height = CheckInput(_height, _wrongHeight);        
 
         if (width > 0 && height > 0)
         {
