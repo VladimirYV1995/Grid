@@ -9,11 +9,8 @@ public class Generator : MonoBehaviour
     [SerializeField] private GameObject _wrongWidth;
     [SerializeField] private InputField _height;
     [SerializeField] private GameObject _wrongHeight;
-
-    [SerializeField] private RectTransform _grid;
-    [SerializeField] private GridLayoutGroup _gridLayoutGroup;
-    [SerializeField] private Transform _container;    
-
+    [SerializeField] private Grid _grid;
+    [SerializeField] private Transform _container;
     [SerializeField] private Letter _template;
 
     private string _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -29,8 +26,7 @@ public class Generator : MonoBehaviour
         if (width > 0 && height > 0)
         {
             ClearGrid();
-
-            _gridLayoutGroup.cellSize = _grid.sizeDelta / new Vector2(width, height);
+            _grid.SetCellSize(width, height);
 
             _letters = new List<Letter>();
             for (int i = 0; i < width; i++)

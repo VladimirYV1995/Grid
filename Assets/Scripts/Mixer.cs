@@ -24,7 +24,6 @@ public class Mixer : MonoBehaviour
             }
         }
 
-        StartCoroutine(DesableButtons());
         foreach (Movement movement in movements)
         {           
             randIndex = Random.Range(0, positions.Count);
@@ -32,29 +31,13 @@ public class Mixer : MonoBehaviour
             positions.RemoveAt(randIndex);
         }
         StartCoroutine(ChangePositions(movements));
-    }
-
-    private IEnumerator DesableButtons()
-    {
-        foreach (Button button in _buttons)
-        {
-            button.enabled = false;
-        }         
-
-        yield return new WaitForSeconds(_timeMix);
-
-        foreach (Button button in _buttons)
-        {
-            button.enabled = true;
-        }
-
-        StopCoroutine(DesableButtons());
-    }
+    }   
 
     private IEnumerator ChangePositions(List<Movement> movements)
     {
         float currentTime = 0;
 
+        EnableButtons(false);
         while (currentTime < _timeMix)
         {
             foreach (Movement movement in movements)
@@ -65,6 +48,16 @@ public class Mixer : MonoBehaviour
             currentTime += Time.deltaTime;
             yield return null;
         }
-        StopCoroutine(ChangePositions(movements));
+        EnableButtons(true);
+
+        StopCoroutine(ChangePositions(movements));        
+    }
+
+    private void EnableButtons(bool isEnable)
+    {
+        foreach (Button button in _buttons)
+        {
+            button.enabled = isEnable;
+        }
     }
 }

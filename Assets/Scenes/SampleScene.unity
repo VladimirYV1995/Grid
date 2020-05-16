@@ -848,6 +848,7 @@ GameObject:
   - component: {fileID: 649513606}
   - component: {fileID: 649513605}
   - component: {fileID: 649513609}
+  - component: {fileID: 649513610}
   - component: {fileID: 649513608}
   m_Layer: 5
   m_Name: Grid
@@ -975,11 +976,24 @@ MonoBehaviour:
   _wrongWidth: {fileID: 240360881}
   _height: {fileID: 1575509635}
   _wrongHeight: {fileID: 817106423}
-  _grid: {fileID: 649513604}
-  _gridLayoutGroup: {fileID: 756326781}
+  _grid: {fileID: 649513610}
   _container: {fileID: 756326780}
   _template: {fileID: 1194331691791906747, guid: dbb3aced9b76a3140afc87858acb8888,
     type: 3}
+--- !u!114 &649513610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649513603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ac1375c69d6d94d9989917feb9b75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rect: {fileID: 649513604}
+  _gridLayoutGroup: {fileID: 756326781}
 --- !u!1 &663956482
 GameObject:
   m_ObjectHideFlags: 0
